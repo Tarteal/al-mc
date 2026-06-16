@@ -32,7 +32,7 @@ function HajjPage() {
         image={IMG}
         title={t("hajj_page_title")}
         subtitle={t("hajj_page_subtitle")}
-        minHeight="min-h-[60vh]"
+        minHeight="min-h-[70vh] md:min-h-[80vh]"
       />
       <section className="bg-cream py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
