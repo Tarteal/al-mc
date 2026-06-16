@@ -1,56 +1,41 @@
-# Prepare Static Build for Bluehost
+# Static HTML Bundle Download
 
-Goal: produce a folder of static files you can upload to Bluehost's `public_html` via cPanel File Manager or FTP, with SPA routing working on refresh/deep links.
+Goal: produce a single downloadable `.zip` containing plain HTML/CSS/JS versions of every page, ready to open locally or upload to any host (Bluehost, GitHub Pages, Netlify, etc.).
 
-## Important caveats (please confirm you accept)
+## What you'll get
 
-- Bluehost shared hosting runs Apache/PHP — it does **not** run Node.js.
-- Server-side features will **not** run on Bluehost:
-  - `createServerFn` server functions
-  - `src/routes/api/*` server routes (webhooks, etc.)
-  - SSR-rendered meta tags (crawlers see the static fallback HTML)
-- The frontend + Lovable Cloud (auth, database, storage) still work because the browser calls Lovable Cloud directly.
-- If the app currently uses any server function, those calls will fail on Bluehost. (I'll scan and flag them before building.)
+A zip file at `/mnt/documents/almustafa-html-site.zip` with this layout:
+
+```
+index.html        (home)
+hajj.html
+umrah.html
+ziyarah.html
+testimonials.html
+contact.html
+assets/           (CSS + JS bundles)
+favicon.ico
+.htaccess         (SPA-style fallback for Apache/Bluehost)
+```
+
+Each `*.html` is a fully rendered snapshot of the page (so it displays correctly even with JS disabled), plus the React bundle that hydrates interactivity (language toggle, mobile menu, WhatsApp button, animations).
 
 ## Steps
 
-1. **Audit server-side usage**
-   - Search the project for `createServerFn` and `src/routes/api/*`.
-   - List anything that won't work on Bluehost so you can decide: accept the limitation, or move that logic to a Lovable Cloud function.
+1. **Build the client** with Vite to produce hashed `assets/*.css` and `assets/*.js` bundles in `dist/client/`.
+2. **Prerender each route** by fetching it from the published site (`caravan-pathways.lovable.app`) and saving the HTML.
+3. **Rewrite asset URLs** in each HTML file so they point to the local `assets/` folder (no dependency on the Lovable CDN for code/styles). Logo + hero images stay as absolute CDN URLs so they keep working.
+4. **Strip Lovable-only scripts** (`flock.js`, `events.js`, error reporters) that don't exist outside the Lovable runtime.
+5. **Add `.htaccess`** for clean URLs on Apache hosts (e.g. `/hajj` → `hajj.html`).
+6. **Zip the folder** to `/mnt/documents/almustafa-html-site.zip` and present a download link.
 
-2. **Add Apache SPA fallback**
-   - Create `public/.htaccess` with:
-     - `RewriteEngine On`
-     - Pass-through for existing files/dirs
-     - Fallback all other requests to `/index.html`
-     - Basic cache headers for `/assets/*` (long cache) and `index.html` (no-cache)
+## Caveats
 
-3. **Produce the static build**
-   - Run the project's client build (Vite output goes to `dist/client`).
-   - Verify `dist/client/index.html`, `dist/client/assets/`, and `.htaccess` are present.
-   - Zip `dist/client/` contents into `bluehost-upload.zip` for easy upload.
+- Server-only features (TanStack `createServerFn`, `src/routes/api/*`) won't run from a static host. The current site doesn't rely on any for visible features, so nothing breaks.
+- Lovable Cloud (auth/DB/storage) would still work from the browser if you later add such features — the bundle talks to Lovable Cloud directly.
+- After any future site change, the bundle needs to be regenerated (asset hashes change each build).
 
-4. **Provide upload instructions**
-   - cPanel → File Manager → `public_html` (or a subfolder/subdomain).
-   - Upload + extract the zip so `index.html` sits at the web root.
-   - Make sure "Show Hidden Files" is on so `.htaccess` is uploaded.
-   - Confirm site loads and `/ziyarah`, `/hajj`, `/umrah` work on refresh.
+## Confirm
 
-## Technical details
-
-- `.htaccess` contents:
-  ```
-  Options -MultiViews
-  RewriteEngine On
-  RewriteCond %{REQUEST_FILENAME} -f [OR]
-  RewriteCond %{REQUEST_FILENAME} -d
-  RewriteRule ^ - [L]
-  RewriteRule . /index.html [L]
-  ```
-- Lovable Cloud env vars (`VITE_SUPABASE_*`) are inlined at build time, so the deployed bundle continues to talk to your Lovable Cloud project from Bluehost.
-- If you host under a subfolder (e.g. `example.com/app/`), the build needs a base path adjustment — tell me the target URL before I build.
-
-## Confirm before I proceed
-
-- Target location on Bluehost: **root domain** (`public_html`) or a **subfolder/subdomain**?
-- OK to ignore SSR meta tags / server functions for this deploy?
+- Use the **published** site (`caravan-pathways.lovable.app`) as the prerender source? (recommended — matches what visitors see)
+- Target filename `almustafa-html-site.zip` OK, or prefer another name?
