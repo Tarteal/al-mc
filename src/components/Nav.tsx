@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
+import logo from "@/assets/logo.png.asset.json";
 
 export function Nav() {
   const { t, lang, setLang } = useI18n();
@@ -33,9 +34,16 @@ export function Nav() {
       }`}
     >
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link to="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
+        <Link to="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
+          <img
+            src={logo.url}
+            alt={t("brand")}
+            className={`h-11 w-11 rounded-full object-cover transition-all ${
+              scrolled || open ? "ring-1 ring-border" : "ring-2 ring-white/70 shadow-lg"
+            }`}
+          />
           <span
-            className={`font-display text-xl font-semibold tracking-wide transition-colors ${
+            className={`hidden font-display text-lg font-semibold tracking-wide transition-colors sm:inline ${
               scrolled || open ? "text-foreground" : "text-white drop-shadow"
             }`}
           >
