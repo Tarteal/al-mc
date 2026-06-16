@@ -32,10 +32,10 @@ export const Route = createFileRoute("/")({
 });
 
 import heroAsset from "@/assets/hero.png.asset.json";
+import hajjAsset from "@/assets/kaaba-tawaf.png.asset.json";
 import ziyarahAsset from "@/assets/imam-ali-shrine.png.asset.json";
 const HERO_IMG = heroAsset.url;
-const HAJJ_IMG =
-  "https://images.unsplash.com/photo-1542816417-0983c9c9ad53?auto=format&fit=crop&w=2000&q=80";
+const HAJJ_IMG = hajjAsset.url;
 const UMRAH_IMG =
   "https://images.unsplash.com/photo-1564769625905-50e93615e769?auto=format&fit=crop&w=2000&q=80";
 const ZIYARAH_IMG = ziyarahAsset.url;
