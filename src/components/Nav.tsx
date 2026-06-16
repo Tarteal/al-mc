@@ -21,8 +21,6 @@ export function Nav() {
     { to: "/hajj", label: t("nav_hajj") },
     { to: "/umrah", label: t("nav_umrah") },
     { to: "/ziyarah", label: t("nav_ziyarah") },
-    { to: "/testimonials", label: t("nav_testimonials") },
-    { to: "/contact", label: t("nav_contact") },
   ] as const;
 
   return (
