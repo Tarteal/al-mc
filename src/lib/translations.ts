@@ -1,6 +1,6 @@
 export const translations = {
   en: {
-    brand: "Al Mustafa Caravan",
+    brand: "Al Mustafa Caravan\u00a0USA - CANADA",
     nav_home: "Home",
     nav_hajj: "Hajj",
     nav_umrah: "Umrah",
