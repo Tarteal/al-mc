@@ -1,0 +1,14 @@
+[build]
+  command = "bun run build"
+  publish = "dist/client"
+
+[build.environment]
+  NITRO_PRESET = "netlify"
+  NODE_VERSION = "20"
+
+# SPA fallback so client-side routes (e.g. /ziyarah, /hajj, /umrah)
+# resolve on hard refresh and deep links.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
