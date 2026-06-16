@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { Layout } from "@/components/Layout";
 import { HeroSection } from "@/components/HeroSection";
+import { Reveal } from "@/components/Reveal";
 import { useI18n } from "@/lib/i18n";
 
 export const Route = createFileRoute("/")({
@@ -115,19 +116,23 @@ function ServiceSection({
         <div
           className={`max-w-xl text-white ${
             flip ? "ms-auto text-end" : "text-start"
-          } fade-in-up`}
+          }`}
         >
-          <h2 className="font-display text-4xl font-medium leading-tight sm:text-5xl md:text-6xl">
+          <Reveal as="h2" className="font-display text-4xl font-medium leading-tight sm:text-5xl md:text-6xl">
             {title}
-          </h2>
-          <p className="mt-5 text-base text-white/90 sm:text-lg">{description}</p>
-          <Link
-            to={to}
-            className="mt-7 inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3 text-base font-semibold text-primary-foreground shadow-lg transition-all hover:bg-primary/90 hover:shadow-xl"
-          >
-            {cta}
-            <ArrowRight size={18} className="rtl:rotate-180" />
-          </Link>
+          </Reveal>
+          <Reveal as="p" delay={150} className="mt-5 text-base text-white/90 sm:text-lg">
+            {description}
+          </Reveal>
+          <Reveal delay={300}>
+            <Link
+              to={to}
+              className="mt-7 inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3 text-base font-semibold text-primary-foreground shadow-lg transition-all hover:bg-primary/90 hover:shadow-xl"
+            >
+              {cta}
+              <ArrowRight size={18} className="rtl:rotate-180" />
+            </Link>
+          </Reveal>
         </div>
       </div>
     </section>
