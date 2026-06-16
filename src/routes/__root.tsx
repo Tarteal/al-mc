@@ -93,6 +93,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Al Mustafa Caravan — Hajj, Umrah & Ziyarah" },
+      { name: "description", content: "Al Mustafa Caravan offers a modern, bilingual website for Islamic pilgrimage travel services." },
+      { property: "og:description", content: "Al Mustafa Caravan offers a modern, bilingual website for Islamic pilgrimage travel services." },
+      { name: "twitter:description", content: "Al Mustafa Caravan offers a modern, bilingual website for Islamic pilgrimage travel services." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/gS2zweUB7UR8nLa8dYwNVFQALHW2/social-images/social-1781604765104-logo.webp" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/gS2zweUB7UR8nLa8dYwNVFQALHW2/social-images/social-1781604765104-logo.webp" },
     ],
     links: [
       { rel: "icon", type: "image/png", href: logoAsset.url },
