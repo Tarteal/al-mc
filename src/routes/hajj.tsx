@@ -4,9 +4,9 @@ import { HeroSection } from "@/components/HeroSection";
 import { PackageCard } from "@/components/PackageCard";
 import { hajjPackages } from "@/lib/packages";
 import { useI18n } from "@/lib/i18n";
+import kaabaImg from "../assets/kaaba-hero.png";
 
-const IMG =
-  "https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?auto=format&fit=crop&w=2000&q=80";
+const IMG = kaabaImg;
 
 export const Route = createFileRoute("/hajj")({
   head: () => ({
