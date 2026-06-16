@@ -6,7 +6,7 @@ import { hajjPackages } from "@/lib/packages";
 import { useI18n } from "@/lib/i18n";
 
 const IMG =
-  "https://images.unsplash.com/photo-1542816417-0983c9c9ad53?auto=format&fit=crop&w=2000&q=80";
+  "https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?auto=format&fit=crop&w=2000&q=80";
 
 export const Route = createFileRoute("/hajj")({
   head: () => ({
