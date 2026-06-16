@@ -4,9 +4,9 @@ import { HeroSection } from "@/components/HeroSection";
 import { PackageCard } from "@/components/PackageCard";
 import { ziyarahPackages } from "@/lib/packages";
 import { useI18n } from "@/lib/i18n";
+import ziyarahAsset from "@/assets/imam-ali-shrine.png.asset.json";
 
-const IMG =
-  "https://images.unsplash.com/photo-1604063155785-ca9bdc760287?auto=format&fit=crop&w=2000&q=80";
+const IMG = ziyarahAsset.url;
 
 export const Route = createFileRoute("/ziyarah")({
   head: () => ({
