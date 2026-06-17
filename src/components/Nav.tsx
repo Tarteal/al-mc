@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import logo from "@/assets/logo.png.asset.json";
@@ -8,6 +8,7 @@ export function Nav() {
   const { t } = useI18n();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -15,6 +16,17 @@ export function Nav() {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    if (!open) return;
+    const handleClickOutside = (e: MouseEvent) => {
+      if (headerRef.current && !headerRef.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [open]);
 
   const links = [
     { to: "/", label: t("nav_home") },
@@ -24,7 +36,7 @@ export function Nav() {
   ] as const;
 
   return (
-    <header
+    <header ref={headerRef}
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled || open
           ? "bg-background/95 backdrop-blur-md shadow-sm border-b border-border"
