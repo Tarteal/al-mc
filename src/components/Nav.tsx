@@ -1,7 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import { useI18n } from "@/lib/i18n";
 import logo from "@/assets/logo.png.asset.json";
 
 export function Nav() {
