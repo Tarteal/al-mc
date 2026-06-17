@@ -36,7 +36,7 @@ export function Nav() {
   ] as const;
 
   return (
-    <header
+    <header ref={headerRef}
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled || open
           ? "bg-background/95 backdrop-blur-md shadow-sm border-b border-border"
