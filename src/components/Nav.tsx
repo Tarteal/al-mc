@@ -5,7 +5,7 @@ import { useI18n } from "@/lib/i18n";
 import logo from "@/assets/logo.png.asset.json";
 
 export function Nav() {
-  const { t, lang, setLang } = useI18n();
+  const { t } = useI18n();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -64,13 +64,6 @@ export function Nav() {
               {l.label}
             </Link>
           ))}
-          <button
-            onClick={() => setLang(lang === "en" ? "ar" : "en")}
-            className="ms-2 rounded-full border border-primary/50 px-3 py-1 text-sm font-medium text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
-            aria-label="Toggle language"
-          >
-            {t("lang_toggle")}
-          </button>
         </div>
 
         <button
@@ -97,15 +90,6 @@ export function Nav() {
                 {l.label}
               </Link>
             ))}
-            <button
-              onClick={() => {
-                setLang(lang === "en" ? "ar" : "en");
-                setOpen(false);
-              }}
-              className="mt-2 self-start rounded-full border border-primary/50 px-4 py-1.5 text-sm font-medium text-primary"
-            >
-              {t("lang_toggle")}
-            </button>
           </div>
         </div>
       )}
