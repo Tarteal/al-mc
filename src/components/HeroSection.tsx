@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { useI18n } from "@/lib/i18n";
 import { Reveal } from "./Reveal";
 
 export function HeroSection({
