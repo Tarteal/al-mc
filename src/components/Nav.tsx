@@ -64,13 +64,6 @@ export function Nav() {
               {l.label}
             </Link>
           ))}
-          <button
-            onClick={() => setLang(lang === "en" ? "ar" : "en")}
-            className="ms-2 rounded-full border border-primary/50 px-3 py-1 text-sm font-medium text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
-            aria-label="Toggle language"
-          >
-            {t("lang_toggle")}
-          </button>
         </div>
 
         <button
