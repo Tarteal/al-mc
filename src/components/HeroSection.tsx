@@ -15,6 +15,7 @@ export function HeroSection({
   children?: ReactNode;
   minHeight?: string;
 }) {
+  const { lang, setLang, t } = useI18n();
   return (
     <section
       className={`relative flex ${minHeight} items-center justify-center overflow-hidden bg-cover bg-center`}
@@ -22,6 +23,15 @@ export function HeroSection({
     >
       <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />
       <div className="relative z-10 mx-auto max-w-4xl px-6 py-16 text-center text-white sm:px-8 md:px-12 md:py-24">
+        <Reveal>
+          <button
+            onClick={() => setLang(lang === "en" ? "ar" : "en")}
+            className="mb-6 inline-flex items-center rounded-full border border-white/40 bg-white/10 px-4 py-1.5 text-sm font-medium text-white backdrop-blur-sm transition-colors hover:bg-white hover:text-foreground"
+            aria-label="Toggle language"
+          >
+            {t("lang_toggle")}
+          </button>
+        </Reveal>
         <Reveal as="h1" className="font-display text-3xl font-medium leading-tight sm:text-4xl md:text-5xl lg:text-6xl">
           {title}
         </Reveal>
