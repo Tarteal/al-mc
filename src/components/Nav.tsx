@@ -90,15 +90,6 @@ export function Nav() {
                 {l.label}
               </Link>
             ))}
-            <button
-              onClick={() => {
-                setLang(lang === "en" ? "ar" : "en");
-                setOpen(false);
-              }}
-              className="mt-2 self-start rounded-full border border-primary/50 px-4 py-1.5 text-sm font-medium text-primary"
-            >
-              {t("lang_toggle")}
-            </button>
           </div>
         </div>
       )}
