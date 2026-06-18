@@ -53,7 +53,7 @@ export function Nav() {
             }`}
           />
           <span
-            className={`hidden font-display text-lg font-semibold tracking-wide transition-colors sm:inline ${
+            className={`min-w-0 truncate font-display text-base font-semibold tracking-wide transition-colors sm:text-lg ${
               scrolled || open ? "text-foreground" : "text-white drop-shadow"
             }`}
           >
