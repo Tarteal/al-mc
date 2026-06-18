@@ -79,6 +79,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { httpEquiv: "Cache-Control", content: "no-cache, no-store, must-revalidate" },
+      { httpEquiv: "Pragma", content: "no-cache" },
+      { httpEquiv: "Expires", content: "0" },
+      { name: "google", content: "notranslate" },
       { title: "Al Mustafa Caravan — Hajj, Umrah & Ziyarah" },
       {
         name: "description",
@@ -103,7 +107,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     links: [
       { rel: "icon", type: "image/png", href: logoAsset.url },
       { rel: "apple-touch-icon", href: logoAsset.url },
-      { rel: "stylesheet", href: appCss },
+      { rel: "stylesheet", href: `${appCss}${appCss.includes("?") ? "&" : "?"}t=${Date.now()}` },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "" },
       {
@@ -120,7 +124,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" translate="no" className="notranslate">
       <head>
         <HeadContent />
       </head>
