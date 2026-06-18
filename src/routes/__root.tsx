@@ -83,6 +83,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { httpEquiv: "Pragma", content: "no-cache" },
       { httpEquiv: "Expires", content: "0" },
       { name: "google", content: "notranslate" },
+      { name: "theme-color", content: "#f8995f" },
       { title: "Al Mustafa Caravan — Hajj, Umrah & Ziyarah" },
       {
         name: "description",
