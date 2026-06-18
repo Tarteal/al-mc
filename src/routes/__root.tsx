@@ -123,9 +123,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: ReactNode }) {
+  const blockTranslateScript = `(function(){window.google=window.google||{};window.google.translate=(function(){var t={TranslateElement:function(){},getInstance:function(){return null}};return{Translate:{Service:{offerings:{},translate:function(a,b,c,d,e){return new Promise(function(){})}},TranslateElement:t}})();})();`;
   return (
     <html lang="en" translate="no" className="notranslate">
       <head>
+        <script dangerouslySetInnerHTML={{ __html: blockTranslateScript }} />
         <HeadContent />
       </head>
       <body>

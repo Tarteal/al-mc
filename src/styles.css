@@ -130,11 +130,36 @@
 
 /* Hide Google Translate UI if injected */
 .goog-te-banner-frame,
+.goog-te-banner-frame.skiptranslate,
 .goog-te-gadget,
+.goog-te-gadget-simple,
+.goog-te-menu-value,
 .skiptranslate,
 iframe.goog-te-menu-frame,
 #goog-gt-tt,
+#goog-gt-tt.goog-tooltip,
 .goog-tooltip,
 .goog-tooltip:hover,
-.goog-text-highlight { display: none !important; visibility: hidden !important; }
+.goog-text-highlight,
+.VIpgJd-yAWNEb-L7lbkb,
+.VIpgJd-ZVi9od-ORHb-OEVmCd,
+.VIpgJd-ZVi9od-aZ2wEe-wOHMyf,
+.VIpgJd-ZVi9od-xl07Ob-lTBxed,
+.VIpgJd-ZVi9od-S9QRwb,
+.VIpgJd-ZVi9od-S9QRwb-LzX3ed,
+.VIpgJd-ZVi9od-S9QRwb-A7M6Jc,
+.VIpgJd-yAWNEb-VIpgJd-fmcmS-wOHMyf,
+.VIpgJd-yAWNEb-VIpgJd-S9QRwb,
+.VIpgJd-yAWNEb-L7lbkb,
+.VIpgJd-ZVi9od-aZ2wEe-OiiCO {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  width: 0 !important;
+  overflow: hidden !important;
+  pointer-events: none !important;
+}
+
 body { top: 0 !important; }
+body > .skiptranslate { display: none !important; }
