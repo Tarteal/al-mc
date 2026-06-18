@@ -9,8 +9,8 @@ export function PackageCard({ pkg, service }: { pkg: Package; service: string })
   const name = localized(pkg.name, lang);
   const msg =
     lang === "ar"
-      ? `السلام عليكم، أرغب في الاستفسار عن باقة ${service} - ${name} (ابتداءً من $${pkg.price.toLocaleString()}).`
-      : `Assalamu Alaikum, I'd like to inquire about the ${service} - ${name} package (from $${pkg.price.toLocaleString()}).`;
+      ? `السلام عليكم، أرغب في الاستفسار عن باقة ${service} - ${name}.`
+      : `Assalamu Alaikum, I'd like to inquire about the ${service} - ${name} package.`;
 
   return (
     <div
@@ -33,14 +33,6 @@ export function PackageCard({ pkg, service }: { pkg: Package; service: string })
           <span className="font-medium text-foreground/70">{t("hotel")}:</span>{" "}
           {localized(pkg.hotel, lang)}
         </p>
-      </div>
-
-      <div className="mt-5 border-y border-border py-4">
-        <p className="text-sm text-muted-foreground">{t("from")}</p>
-        <p className="mt-1 font-display text-4xl font-semibold text-primary">
-          ${pkg.price.toLocaleString()}
-        </p>
-        <p className="text-xs text-muted-foreground">{t("per_person")}</p>
       </div>
 
       <div className="mt-5 flex-1">
