@@ -11,6 +11,9 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import logoAsset from "../assets/logo.png.asset.json";
+import favicon16 from "../assets/favicon-16x16.png.asset.json";
+import favicon32 from "../assets/favicon-32x32.png.asset.json";
+import appleTouchIcon from "../assets/apple-touch-icon.png.asset.json";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { I18nProvider } from "../lib/i18n";
 
