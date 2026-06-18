@@ -132,7 +132,7 @@ function ContactPage() {
 
             {/* Info */}
             <div className="space-y-6">
-              <InfoRow icon={<Phone size={20} />} label={t("contact_phone")} value="+1 (234) 567-890" />
+              <InfoRow icon={<Phone size={20} />} label={t("contact_phone")} value="+1 (313) 676-6662" />
               <InfoRow icon={<Mail size={20} />} label={t("contact_email")} value="info@almustafacaravan.com" />
               <InfoRow
                 icon={<MapPin size={20} />}
