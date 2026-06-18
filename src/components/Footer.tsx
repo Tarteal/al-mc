@@ -32,7 +32,7 @@ export function Footer() {
               {t("nav_contact")}
             </h4>
             <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-              <li>+1 (234) 567-890</li>
+              <li>+1 (313) 676-6662</li>
               <li>info@almustafacaravan.com</li>
               <li>123 Pilgrim Way, City, Country</li>
             </ul>
