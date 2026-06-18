@@ -109,8 +109,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/gS2zweUB7UR8nLa8dYwNVFQALHW2/social-images/social-1781604765104-logo.webp" },
     ],
     links: [
-      { rel: "icon", type: "image/png", href: logoAsset.url },
-      { rel: "apple-touch-icon", href: logoAsset.url },
+      { rel: "icon", type: "image/png", sizes: "32x32", href: favicon32.url },
+      { rel: "icon", type: "image/png", sizes: "16x16", href: favicon16.url },
+      { rel: "apple-touch-icon", sizes: "180x180", href: appleTouchIcon.url },
       { rel: "stylesheet", href: `${appCss}${appCss.includes("?") ? "&" : "?"}t=${Date.now()}` },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "" },
