@@ -4,7 +4,7 @@ import { HeroSection } from "@/components/HeroSection";
 import { PackageCard } from "@/components/PackageCard";
 import { hajjPackages } from "@/lib/packages";
 import { useI18n } from "@/lib/i18n";
-import kaabaImg from "../assets/kaaba-hero.png";
+const kaabaImg = "/images/kaaba-hero.png";
 
 const IMG = kaabaImg;
 

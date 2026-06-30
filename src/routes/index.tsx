@@ -5,6 +5,10 @@ import { HeroSection } from "@/components/HeroSection";
 import { Reveal } from "@/components/Reveal";
 import { useI18n } from "@/lib/i18n";
 
+const HERO_IMG = "/images/hero.png";
+const HAJJ_IMG = "/images/kaaba-tawaf.jpg";
+const ZIYARAH_IMG = "/images/imam-ali-shrine.jpg";
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -32,9 +36,9 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-import HERO_IMG from "@/assets/hero.png";
-import HAJJ_IMG from "@/assets/kaaba-tawaf.jpg";
-import ZIYARAH_IMG from "@/assets/imam-ali-shrine.jpg";
+
+
+
 const UMRAH_IMG =
   "https://images.unsplash.com/photo-1564769625905-50e93615e769?auto=format&fit=crop&w=2000&q=80";
 

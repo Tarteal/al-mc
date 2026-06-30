@@ -10,9 +10,6 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import favicon16 from "../assets/favicon-16x16.png";
-import favicon32 from "../assets/favicon-32x32.png";
-import appleTouchIcon from "../assets/apple-touch-icon.png";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { I18nProvider } from "../lib/i18n";
 
@@ -108,9 +105,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/gS2zweUB7UR8nLa8dYwNVFQALHW2/social-images/social-1781604765104-logo.webp" },
     ],
     links: [
-      { rel: "icon", type: "image/png", sizes: "32x32", href: favicon32 },
-      { rel: "icon", type: "image/png", sizes: "16x16", href: favicon16 },
-      { rel: "apple-touch-icon", sizes: "180x180", href: appleTouchIcon },
+      { rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon-32x32.png" },
+      { rel: "icon", type: "image/png", sizes: "16x16", href: "/favicon-16x16.png" },
+      { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
       { rel: "stylesheet", href: `${appCss}${appCss.includes("?") ? "&" : "?"}t=${Date.now()}` },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "" },

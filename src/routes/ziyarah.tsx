@@ -4,7 +4,7 @@ import { HeroSection } from "@/components/HeroSection";
 import { PackageCard } from "@/components/PackageCard";
 import { ziyarahPackages } from "@/lib/packages";
 import { useI18n } from "@/lib/i18n";
-import IMG from "@/assets/imam-ali-shrine.jpg";
+const IMG = "/images/imam-ali-shrine.jpg";
 
 export const Route = createFileRoute("/ziyarah")({
   head: () => ({
