@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useI18n } from "@/lib/i18n";
-import logo from "@/assets/logo.png.asset.json";
+import logo from "@/assets/logo.png";
 
 export function Footer() {
   const { t } = useI18n();
@@ -10,7 +10,7 @@ export function Footer() {
         <div className="grid gap-8 md:grid-cols-3">
           <div>
             <div className="flex items-center gap-3">
-              <img src={logo.url} alt={t("brand")} className="h-12 w-12 rounded-full object-cover" />
+              <img src={logo} alt={t("brand")} className="h-12 w-12 rounded-full object-cover" />
               <h3 className="font-display text-2xl text-foreground">{t("brand")}</h3>
             </div>
             <p className="mt-3 text-sm text-muted-foreground">{t("footer_tagline")}</p>
